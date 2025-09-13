@@ -1,0 +1,104 @@
+import fs from 'fs'
+import PizZip from 'pizzip'
+import Docxtemplater from 'docxtemplater'
+import ImageModule from 'docxtemplater-image-module-free'
+import sizeOf from 'image-size'
+
+
+/**
+ * Docx模板取代器
+ *
+ * @param {Object} kpData 輸入轉換物件，模板內取代用鍵需用中括號包住，若鍵為keyText，模板內須須取代文字給予[[keyText]]，若鍵為keyImage，模板內須須取代文字須多給予%，也就是給予[[%keyImage]]
+ * @param {Object} fpTmp 輸入模板檔案路徑字串
+ * @param {Object} fpOut 輸入取代後輸出檔案路徑字串
+ * @param {Object} [opt={}] 輸入設定物件，預設{}
+ * @returns {Promise} 回傳Promise，resolve代表成功，reject代表執行失敗
+ * @example
+ *
+ * import wtd from './src/WTmperDocx.mjs'
+ *
+ * let kpData = {
+ *     text: 'abc測試中文',
+ *     image: './test/image.png',
+ * }
+ * console.log('kpData', kpData)
+ *
+ * let fpTmp = './test/tmp.docx'
+ * let fpOut = `./test/report.docx`
+ * await wtd(kpData, fpTmp, fpOut)
+ *
+ */
+let WTmpertmerx = async(kpData, fpTmp, fpOut, opt = {}) => {
+
+    //buffIn, 讀入 Word 檔為二進位
+    let buffIn = fs.readFileSync(fpTmp)
+
+    //zip, 使用pizzip解壓縮
+    let zip = new PizZip(buffIn)
+
+    //imageModule, 取代圖模組, 記得模板內的key已改用中括號且key前面要添加百分比: [[%key]]
+    let optIm = {
+        centered: false, //是否置中
+        fileType: 'tmerx',
+        getImage: function (tagValue, tagName) {
+            // console.log('getImage tagValue', tagValue)
+
+            let buff = fs.readFileSync(tagValue)
+
+            return buff
+
+        },
+        getSize: function (img, tagValue, tagName) {
+            // console.log('getSize img', img)
+
+            //widthMax, heightMax
+            let widthMax = 300
+            let heightMax = 300
+
+            //width, height
+            let dimensions = sizeOf(img)
+            let { width, height } = dimensions
+
+            //ratio
+            let ratio = Math.min(widthMax / width, heightMax / height)
+
+            return [width * ratio, height * ratio] //圖片寬高(px), 按比例縮放
+        }
+    }
+    let imageModule = new ImageModule(optIm)
+
+    //tmer, 建立docxtemplater實體
+    let tmer = new Docxtemplater(zip, {
+        modules: [imageModule], //加載imageModule
+        // paragraphLoop: true,
+        // linebreaks: true,
+        delimiters: { start: '[[', end: ']]' }, //預設{{key}}會無法使用, xml內被分拆儲存導致無法解析, 故改用[[key]]
+    })
+
+    //setData
+    // tmer.setData({
+    //     name: 'Alice', //[[name]] -> Alice
+    //     id: 'A12345678' //[[id]] -> A12345678
+    // })
+    tmer.setData(kpData)
+
+    //render
+    try {
+        tmer.render()
+    }
+    catch (error) {
+        console.error(error)
+    }
+
+    //buffOut, 轉出新二進位數據
+    let buffOut = tmer
+        .getZip()
+        .generate({ type: 'nodebuffer' })
+
+    //writeFileSync
+    fs.writeFileSync(fpOut, buffOut)
+
+}
+
+
+export default WTmpertmerx

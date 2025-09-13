@@ -1,0 +1,33 @@
+{
+  "name": "w-tmper-docx",
+  "version": "1.0.1",
+  "main": "dist/w-tmper-docx.umd.js",
+  "dependencies": {
+    "docxtemplater": "^3.66.3",
+    "docxtemplater-image-module-free": "^1.1.1",
+    "image-size": "^2.0.2",
+    "json5": "^2.2.3",
+    "pizzip": "^3.2.0"
+  },
+  "devDependencies": {
+    "w-package-tools": "^1.1.2"
+  },
+  "scripts": {
+    "test": "mocha --parallel --timeout 60000",
+    "deploy": "gh-pages -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuda-lyu/w-tmper-docx.git"
+  },
+  "keywords": [
+    "package",
+    "tool",
+    "template",
+    "docx",
+    "replacer",
+    "nodejs"
+  ],
+  "author": "yuda-lyu(semisphere)",
+  "license": "MIT"
+}
