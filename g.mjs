@@ -9,7 +9,12 @@ console.log('kpData', kpData)
 
 let fpTmp = './test/tmp.docx'
 let fpOut = `./test/report.docx`
-await wtd(kpData, fpTmp, fpOut)
+let opt = {
+    kpWidthMax: {
+        image: 300,
+    },
+}
+await wtd(kpData, fpTmp, fpOut, opt)
 
 
 //node g.mjs

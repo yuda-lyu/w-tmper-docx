@@ -15,7 +15,12 @@ describe('replace', function() {
 
         let fpTmp = './test/tmp.docx'
         let fpOut = `./test/report.docx`
-        await wtd(kpData, fpTmp, fpOut)
+        let opt = {
+            kpWidthMax: {
+                image: 300,
+            },
+        }
+        await wtd(kpData, fpTmp, fpOut, opt)
 
         let sizeText = fs.statSync(fpOut).size
         let sizeAns = fs.statSync(`./test/report_ans.docx`).size
