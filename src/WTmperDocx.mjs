@@ -8,6 +8,17 @@ import ImageModule from 'docxtemplater-image-module-free'
 import sizeOf from 'image-size'
 
 
+function silenceConsoleWarn(fn) {
+    let originalWarn = console.warn
+    console.warn = () => {}
+    try {
+        return fn()
+    }
+    finally {
+        console.warn = originalWarn
+    }
+}
+
 /**
  * Docx模板取代器
  *
@@ -111,24 +122,24 @@ let WTmpertmerx = async(kpData, fpTmp, fpOut, opt = {}) => {
     })
 
     //setData
-    // tmer.setData({
-    //     name: 'Alice', //[[name]] -> Alice
-    //     id: 'A12345678' //[[id]] -> A12345678
-    // })
-    tmer.setData(kpData)
-
-    //render
+    let originalWarn = console.warn
+    console.warn = () => {}
     try {
-        tmer.render()
+        tmer.setData(kpData) //內部會顯示Deprecated method ".setData", 執行時暫時禁用console.warn
     }
-    catch (error) {
-        console.error(error)
+    finally {
+        console.warn = originalWarn
     }
+
+    //render, 不能攔錯, 否則tmer轉二進位數據與writeFileSync無法發現render內部錯誤
+    tmer.render()
+    // console.log('tmer', tmer)
 
     //buffOut, 轉出新二進位數據
     let buffOut = tmer
         .getZip()
         .generate({ type: 'nodebuffer' })
+    // console.log('buffOut', buffOut)
 
     //writeFileSync
     fs.writeFileSync(fpOut, buffOut)
