@@ -116,8 +116,8 @@ let WTmpertmerx = async(kpData, fpTmp, fpOut, opt = {}) => {
     //tmer, 建立docxtemplater實體
     let tmer = new Docxtemplater(zip, {
         modules: [imageModule], //加載imageModule
-        // paragraphLoop: true,
-        // linebreaks: true,
+        paragraphLoop: true, //模板內迴圈將沿用段落樣式
+        linebreaks: true, //文字內\n可被視為換行符號
         delimiters: { start: '[[', end: ']]' }, //預設{{key}}會無法使用, xml內被分拆儲存導致無法解析, 故改用[[key]]
     })
 

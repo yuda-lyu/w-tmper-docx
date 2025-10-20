@@ -1,6 +1,6 @@
 {
   "name": "w-tmper-docx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/w-tmper-docx.umd.js",
   "dependencies": {
     "docxtemplater": "^3.66.7",
