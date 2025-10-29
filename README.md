@@ -12,6 +12,7 @@ A replacer for template of docx.
 To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-tmper-docx/global.html).
 
 ## Installation
+
 ### Using npm(ES6 module):
 ```alias
 npm i w-tmper-docx
