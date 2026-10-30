@@ -4,7 +4,7 @@ import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import PizZip from 'pizzip'
 import Docxtemplater from 'docxtemplater'
-import ImageModule from 'docxtemplater-image-module-free'
+import ImageModule from './imageModule/index.mjs'
 import sizeOf from 'image-size'
 
 
@@ -23,7 +23,7 @@ function silenceConsoleWarn(fn) {
  * Docx模板取代器
  *
  * @param {Object} kpData 輸入轉換物件，模板內取代用鍵需用中括號包住，若鍵為keyText，模板內須須取代文字給予[[keyText]]，若鍵為keyImage，模板內須須取代文字須多給予%，也就是給予[[%keyImage]]
- * @param {Object} fpTmp 輸入模板檔案路徑字串
+ * @param {Object} fpTmp 輸入docx模板檔案路徑字串，僅支援docx，非docx(如pptx)模板會reject
  * @param {Object} fpOut 輸入取代後輸出檔案路徑字串
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Integer} [opt.widthMaxDef=1000] 輸入預設圖最大寬度整數，單位px，預設1000

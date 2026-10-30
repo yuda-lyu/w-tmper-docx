@@ -1,10 +1,9 @@
 {
   "name": "w-tmper-docx",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "main": "dist/w-tmper-docx.umd.js",
   "dependencies": {
     "docxtemplater": "^3.66.7",
-    "docxtemplater-image-module-free": "^1.1.1",
     "image-size": "^2.0.2",
     "json5": "^2.2.3",
     "pizzip": "^3.2.0",

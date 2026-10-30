@@ -1,0 +1,613 @@
+{
+  "_meta": {
+    "note": "修改前(w-tmper-docx 1.0.28, 圖片模組為npm套件docxtemplater-image-module-free 1.1.1)套印同一模板之輸出摘要; 納入圖片模組程式後輸出須與此一致.",
+    "shape": "summarizeDocx(test/tools/imageFixture.mjs); media.label為來源圖鍵, 不含壓縮後位元組"
+  },
+  "scenarios": {
+    "basic": {
+      "drawings": {
+        "word/document.xml": [
+          {
+            "rId": 6,
+            "cx": 2857500,
+            "cy": 2307204,
+            "aCx": 2857500,
+            "aCy": 2307204,
+            "centered": false
+          }
+        ]
+      },
+      "rels": {
+        "word/_rels/document.xml.rels": [
+          {
+            "Id": "rId3",
+            "Type": "webSettings",
+            "Target": "webSettings.xml"
+          },
+          {
+            "Id": "rId2",
+            "Type": "settings",
+            "Target": "settings.xml"
+          },
+          {
+            "Id": "rId1",
+            "Type": "styles",
+            "Target": "styles.xml"
+          },
+          {
+            "Id": "rId5",
+            "Type": "theme",
+            "Target": "theme/theme1.xml"
+          },
+          {
+            "Id": "rId4",
+            "Type": "fontTable",
+            "Target": "fontTable.xml"
+          },
+          {
+            "Id": "rId6",
+            "Type": "image",
+            "Target": "media/image_generated_1.png"
+          }
+        ]
+      },
+      "media": [
+        {
+          "name": "word/media/image_generated_1.png",
+          "label": "basic"
+        }
+      ],
+      "contentTypeDefaults": [
+        {
+          "Extension": "rels",
+          "ContentType": "application/vnd.openxmlformats-package.relationships+xml"
+        },
+        {
+          "Extension": "xml",
+          "ContentType": "application/xml"
+        },
+        {
+          "Extension": "png",
+          "ContentType": "image/png"
+        }
+      ]
+    },
+    "multi-default": {
+      "drawings": {
+        "word/document.xml": [
+          {
+            "rId": 101,
+            "cx": 1143000,
+            "cy": 762000,
+            "aCx": 1143000,
+            "aCy": 762000,
+            "centered": false
+          },
+          {
+            "rId": 102,
+            "cx": 3810000,
+            "cy": 1905000,
+            "aCx": 3810000,
+            "aCy": 1905000,
+            "centered": true
+          },
+          {
+            "rId": 103,
+            "cx": 9525000,
+            "cy": 7143750,
+            "aCx": 9525000,
+            "aCy": 7143750,
+            "centered": false
+          },
+          {
+            "rId": 104,
+            "cx": 2857500,
+            "cy": 1428750,
+            "aCx": 2857500,
+            "aCy": 1428750,
+            "centered": false
+          },
+          {
+            "rId": 105,
+            "cx": 609600,
+            "cy": 609600,
+            "aCx": 609600,
+            "aCy": 609600,
+            "centered": false
+          },
+          {
+            "rId": 106,
+            "cx": 857250,
+            "cy": 285750,
+            "aCx": 857250,
+            "aCy": 285750,
+            "centered": false
+          }
+        ],
+        "word/header1.xml": [
+          {
+            "rId": 1,
+            "cx": 476250,
+            "cy": 476250,
+            "aCx": 476250,
+            "aCy": 476250,
+            "centered": false
+          }
+        ]
+      },
+      "rels": {
+        "word/_rels/document.xml.rels": [
+          {
+            "Id": "rId3",
+            "Type": "webSettings",
+            "Target": "webSettings.xml"
+          },
+          {
+            "Id": "rId2",
+            "Type": "settings",
+            "Target": "settings.xml"
+          },
+          {
+            "Id": "rId1",
+            "Type": "styles",
+            "Target": "styles.xml"
+          },
+          {
+            "Id": "rId5",
+            "Type": "theme",
+            "Target": "theme/theme1.xml"
+          },
+          {
+            "Id": "rId4",
+            "Type": "fontTable",
+            "Target": "fontTable.xml"
+          },
+          {
+            "Id": "rId100",
+            "Type": "header",
+            "Target": "header1.xml"
+          },
+          {
+            "Id": "rId101",
+            "Type": "image",
+            "Target": "media/image_generated_2.png"
+          },
+          {
+            "Id": "rId102",
+            "Type": "image",
+            "Target": "media/image_generated_3.png"
+          },
+          {
+            "Id": "rId103",
+            "Type": "image",
+            "Target": "media/image_generated_4.png"
+          },
+          {
+            "Id": "rId104",
+            "Type": "image",
+            "Target": "media/image_generated_5.png"
+          },
+          {
+            "Id": "rId105",
+            "Type": "image",
+            "Target": "media/image_generated_6.png"
+          },
+          {
+            "Id": "rId106",
+            "Type": "image",
+            "Target": "media/image_generated_7.png"
+          }
+        ],
+        "word/_rels/header1.xml.rels": [
+          {
+            "Id": "rId1",
+            "Type": "image",
+            "Target": "media/image_generated_1.png"
+          }
+        ]
+      },
+      "media": [
+        {
+          "name": "word/media/image_generated_1.png",
+          "label": "hdr"
+        },
+        {
+          "name": "word/media/image_generated_2.png",
+          "label": "imgA"
+        },
+        {
+          "name": "word/media/image_generated_3.png",
+          "label": "imgB"
+        },
+        {
+          "name": "word/media/image_generated_4.png",
+          "label": "imgBig"
+        },
+        {
+          "name": "word/media/image_generated_5.png",
+          "label": "imgCell"
+        },
+        {
+          "name": "word/media/image_generated_6.png",
+          "label": "r1"
+        },
+        {
+          "name": "word/media/image_generated_7.png",
+          "label": "r2"
+        }
+      ],
+      "contentTypeDefaults": [
+        {
+          "Extension": "rels",
+          "ContentType": "application/vnd.openxmlformats-package.relationships+xml"
+        },
+        {
+          "Extension": "xml",
+          "ContentType": "application/xml"
+        },
+        {
+          "Extension": "png",
+          "ContentType": "image/png"
+        }
+      ]
+    },
+    "multi-caps": {
+      "drawings": {
+        "word/document.xml": [
+          {
+            "rId": 101,
+            "cx": 1143000,
+            "cy": 762000,
+            "aCx": 1143000,
+            "aCy": 762000,
+            "centered": false
+          },
+          {
+            "rId": 102,
+            "cx": 3810000,
+            "cy": 1905000,
+            "aCx": 3810000,
+            "aCy": 1905000,
+            "centered": true
+          },
+          {
+            "rId": 103,
+            "cx": 3810000,
+            "cy": 2857500,
+            "aCx": 3810000,
+            "aCy": 2857500,
+            "centered": false
+          },
+          {
+            "rId": 104,
+            "cx": 2857500,
+            "cy": 1428750,
+            "aCx": 2857500,
+            "aCy": 1428750,
+            "centered": false
+          },
+          {
+            "rId": 105,
+            "cx": 381000,
+            "cy": 381000,
+            "aCx": 381000,
+            "aCy": 381000,
+            "centered": false
+          },
+          {
+            "rId": 106,
+            "cx": 857250,
+            "cy": 285750,
+            "aCx": 857250,
+            "aCy": 285750,
+            "centered": false
+          }
+        ],
+        "word/header1.xml": [
+          {
+            "rId": 1,
+            "cx": 476250,
+            "cy": 476250,
+            "aCx": 476250,
+            "aCy": 476250,
+            "centered": false
+          }
+        ]
+      },
+      "rels": {
+        "word/_rels/document.xml.rels": [
+          {
+            "Id": "rId3",
+            "Type": "webSettings",
+            "Target": "webSettings.xml"
+          },
+          {
+            "Id": "rId2",
+            "Type": "settings",
+            "Target": "settings.xml"
+          },
+          {
+            "Id": "rId1",
+            "Type": "styles",
+            "Target": "styles.xml"
+          },
+          {
+            "Id": "rId5",
+            "Type": "theme",
+            "Target": "theme/theme1.xml"
+          },
+          {
+            "Id": "rId4",
+            "Type": "fontTable",
+            "Target": "fontTable.xml"
+          },
+          {
+            "Id": "rId100",
+            "Type": "header",
+            "Target": "header1.xml"
+          },
+          {
+            "Id": "rId101",
+            "Type": "image",
+            "Target": "media/image_generated_2.png"
+          },
+          {
+            "Id": "rId102",
+            "Type": "image",
+            "Target": "media/image_generated_3.png"
+          },
+          {
+            "Id": "rId103",
+            "Type": "image",
+            "Target": "media/image_generated_4.png"
+          },
+          {
+            "Id": "rId104",
+            "Type": "image",
+            "Target": "media/image_generated_5.png"
+          },
+          {
+            "Id": "rId105",
+            "Type": "image",
+            "Target": "media/image_generated_6.png"
+          },
+          {
+            "Id": "rId106",
+            "Type": "image",
+            "Target": "media/image_generated_7.png"
+          }
+        ],
+        "word/_rels/header1.xml.rels": [
+          {
+            "Id": "rId1",
+            "Type": "image",
+            "Target": "media/image_generated_1.png"
+          }
+        ]
+      },
+      "media": [
+        {
+          "name": "word/media/image_generated_1.png",
+          "label": "hdr"
+        },
+        {
+          "name": "word/media/image_generated_2.png",
+          "label": "imgA"
+        },
+        {
+          "name": "word/media/image_generated_3.png",
+          "label": "imgB"
+        },
+        {
+          "name": "word/media/image_generated_4.png",
+          "label": "imgBig"
+        },
+        {
+          "name": "word/media/image_generated_5.png",
+          "label": "imgCell"
+        },
+        {
+          "name": "word/media/image_generated_6.png",
+          "label": "r1"
+        },
+        {
+          "name": "word/media/image_generated_7.png",
+          "label": "r2"
+        }
+      ],
+      "contentTypeDefaults": [
+        {
+          "Extension": "rels",
+          "ContentType": "application/vnd.openxmlformats-package.relationships+xml"
+        },
+        {
+          "Extension": "xml",
+          "ContentType": "application/xml"
+        },
+        {
+          "Extension": "png",
+          "ContentType": "image/png"
+        }
+      ]
+    },
+    "width-only": {
+      "drawings": {
+        "word/document.xml": [
+          {
+            "rId": 101,
+            "cx": 1143000,
+            "cy": 762000,
+            "aCx": 1143000,
+            "aCy": 762000,
+            "centered": false
+          },
+          {
+            "rId": 102,
+            "cx": 3810000,
+            "cy": 1905000,
+            "aCx": 3810000,
+            "aCy": 1905000,
+            "centered": true
+          },
+          {
+            "rId": 103,
+            "cx": 4762500,
+            "cy": 3571875,
+            "aCx": 4762500,
+            "aCy": 3571875,
+            "centered": false
+          },
+          {
+            "rId": 104,
+            "cx": 2857500,
+            "cy": 1428750,
+            "aCx": 2857500,
+            "aCy": 1428750,
+            "centered": false
+          },
+          {
+            "rId": 105,
+            "cx": 609600,
+            "cy": 609600,
+            "aCx": 609600,
+            "aCy": 609600,
+            "centered": false
+          },
+          {
+            "rId": 106,
+            "cx": 857250,
+            "cy": 285750,
+            "aCx": 857250,
+            "aCy": 285750,
+            "centered": false
+          }
+        ],
+        "word/header1.xml": [
+          {
+            "rId": 1,
+            "cx": 476250,
+            "cy": 476250,
+            "aCx": 476250,
+            "aCy": 476250,
+            "centered": false
+          }
+        ]
+      },
+      "rels": {
+        "word/_rels/document.xml.rels": [
+          {
+            "Id": "rId3",
+            "Type": "webSettings",
+            "Target": "webSettings.xml"
+          },
+          {
+            "Id": "rId2",
+            "Type": "settings",
+            "Target": "settings.xml"
+          },
+          {
+            "Id": "rId1",
+            "Type": "styles",
+            "Target": "styles.xml"
+          },
+          {
+            "Id": "rId5",
+            "Type": "theme",
+            "Target": "theme/theme1.xml"
+          },
+          {
+            "Id": "rId4",
+            "Type": "fontTable",
+            "Target": "fontTable.xml"
+          },
+          {
+            "Id": "rId100",
+            "Type": "header",
+            "Target": "header1.xml"
+          },
+          {
+            "Id": "rId101",
+            "Type": "image",
+            "Target": "media/image_generated_2.png"
+          },
+          {
+            "Id": "rId102",
+            "Type": "image",
+            "Target": "media/image_generated_3.png"
+          },
+          {
+            "Id": "rId103",
+            "Type": "image",
+            "Target": "media/image_generated_4.png"
+          },
+          {
+            "Id": "rId104",
+            "Type": "image",
+            "Target": "media/image_generated_5.png"
+          },
+          {
+            "Id": "rId105",
+            "Type": "image",
+            "Target": "media/image_generated_6.png"
+          },
+          {
+            "Id": "rId106",
+            "Type": "image",
+            "Target": "media/image_generated_7.png"
+          }
+        ],
+        "word/_rels/header1.xml.rels": [
+          {
+            "Id": "rId1",
+            "Type": "image",
+            "Target": "media/image_generated_1.png"
+          }
+        ]
+      },
+      "media": [
+        {
+          "name": "word/media/image_generated_1.png",
+          "label": "hdr"
+        },
+        {
+          "name": "word/media/image_generated_2.png",
+          "label": "imgA"
+        },
+        {
+          "name": "word/media/image_generated_3.png",
+          "label": "imgB"
+        },
+        {
+          "name": "word/media/image_generated_4.png",
+          "label": "imgBig"
+        },
+        {
+          "name": "word/media/image_generated_5.png",
+          "label": "imgCell"
+        },
+        {
+          "name": "word/media/image_generated_6.png",
+          "label": "r1"
+        },
+        {
+          "name": "word/media/image_generated_7.png",
+          "label": "r2"
+        }
+      ],
+      "contentTypeDefaults": [
+        {
+          "Extension": "rels",
+          "ContentType": "application/vnd.openxmlformats-package.relationships+xml"
+        },
+        {
+          "Extension": "xml",
+          "ContentType": "application/xml"
+        },
+        {
+          "Extension": "png",
+          "ContentType": "image/png"
+        }
+      ]
+    }
+  }
+}
