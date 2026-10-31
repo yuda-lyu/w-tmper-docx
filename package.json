@@ -1,13 +1,13 @@
 {
   "name": "w-tmper-docx",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "main": "dist/w-tmper-docx.umd.js",
   "dependencies": {
     "docxtemplater": "^3.66.7",
     "image-size": "^2.0.2",
     "json5": "^2.2.3",
     "pizzip": "^3.2.0",
-    "wsemi": "^1.9.25"
+    "wsemi": "^1.9.36"
   },
   "devDependencies": {
     "w-package-tools": "^1.1.21"
