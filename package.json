@@ -1,16 +1,16 @@
 {
   "name": "w-tmper-docx",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "main": "dist/w-tmper-docx.umd.js",
   "dependencies": {
     "docxtemplater": "^3.66.7",
     "image-size": "^2.0.2",
     "json5": "^2.2.3",
     "pizzip": "^3.2.0",
-    "wsemi": "^1.9.37"
+    "wsemi": "^1.9.42"
   },
   "devDependencies": {
-    "w-package-tools": "^1.1.21"
+    "w-package-tools": "^1.1.23"
   },
   "scripts": {
     "test": "mocha --parallel \"test/*.test.mjs\" --timeout 180000",
