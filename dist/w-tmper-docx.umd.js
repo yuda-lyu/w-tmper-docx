@@ -1,5 +1,5 @@
 /*!
- * w-tmper-docx v1.0.37
+ * w-tmper-docx v1.0.38
  * (c) 2018-2021 yuda-lyu(semisphere)
  * Released under the MIT License.
  */
